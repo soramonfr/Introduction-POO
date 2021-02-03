@@ -2,8 +2,8 @@
 class Character
 
 {
-    private $health;
-    private $rage;
+    protected $health;
+    protected $rage;
     
     public function __construct($health = 100)
     {

@@ -33,7 +33,7 @@ Cette méthode devra permettre le déclenchement de la **méthode construct de l
 **Pour finir**, cette méthode doit **retourner** une phrase contenant toutes les informations sur le Héros nouvellement créé.
 
 ## Exercice 7
-Créer une **méthode attacked** dans la classe **Hero** permettant au Héros de prendre des dégâts **en considérant la valeur du bouclier**.
+Créer une **méthode attacked** dans la classe **Hero** permettant au Héros de prendre des dégâts **en considérant la valeur du bouclier**. Transformer les attributs privés en protected afin de pouvoir exploiter $health dans Hero.
 
 ## Exercice 8
 Pour chaque coup reçu, il faudra faire gagner de la rage à notre Héros.  

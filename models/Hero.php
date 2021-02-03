@@ -64,4 +64,10 @@ class Hero extends Character
             . "Bouclier: " . $this->shield . $br
             . "Protection du bouclier: " . $this->shieldValue;
     }
+
+    public function attacked($damage) {
+        if ($damage - $this->shieldValue > 0) {
+            $this->health -= ($damage - $this->shieldValue);
+        }
+    }
 }
