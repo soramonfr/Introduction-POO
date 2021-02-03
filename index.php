@@ -5,7 +5,7 @@ spl_autoload_register(function ($class) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,9 @@ spl_autoload_register(function ($class) {
 
 <body>
     <?php
+    $superChewi = new Hero();
+    $superChewi->setWeapon("Banane");
+    $superChewi->displayHero();
     ?>
 
 </body>
