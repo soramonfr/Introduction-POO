@@ -7,6 +7,15 @@ class Hero extends Character
     private $shield;
     private $shieldValue;
 
+    public function __construct($health = 100, $weapon = "Spatule", $weaponDamage = 25, $shield = "Couette", $shieldValue = 12)
+    {
+        parent::__construct($health);
+        $this->weapon = $weapon;
+        $this->weaponDamage = $weaponDamage;
+        $this->shield = $shield;
+        $this->shieldValue = $shieldValue;
+    }
+
     public function getWeapon()
     {
         return $this->weapon;
@@ -45,5 +54,14 @@ class Hero extends Character
     public function setShieldValue($shieldValue)
     {
         $this->shieldValue = $shieldValue;
+    }
+
+    public function displayHero () {
+        $br = "<br>";
+        echo "Nom : Inconnu ${br}Vie : " . $this->getHealth() . $br
+            . "Arme: " . $this->weapon . $br
+            . "Dégats de l'arme: " . $this->weaponDamage . $br
+            . "Bouclier: " . $this->shield . $br
+            . "Protection du bouclier: " . $this->shieldValue;
     }
 }
