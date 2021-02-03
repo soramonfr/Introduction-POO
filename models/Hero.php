@@ -69,5 +69,6 @@ class Hero extends Character
         if ($damage - $this->shieldValue > 0) {
             $this->health -= ($damage - $this->shieldValue);
         }
+        $this->rage += 30;
     }
 }

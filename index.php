@@ -17,6 +17,7 @@ spl_autoload_register(function ($class) {
     <?php
     $superChewi = new Hero();
     $superChewi->setWeapon("Banane");
+    $superChewi->attacked(13);
     $superChewi->displayHero();
     ?>
 
