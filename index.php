@@ -21,6 +21,8 @@ spl_autoload_register(function ($class) {
     $superChewi->displayHero();
     $orc = new Orc(100, 50);
     $orc->displayOrc();
+    $orc->attack();
+    $orc->displayOrc();
     ?>
 
 </body>
