@@ -18,7 +18,7 @@ spl_autoload_register(function ($class) {
     $br = "<br>";
     $superChewi = new Hero(2000, "Banane", 250, "Moulin à café", 600);
     $superChewi->displayHero();
-    $orc = new Orc(6000, 0);
+    $orc = new Orc(500, 0);
     $orc->displayOrc();
 
     while ($superChewi->getHealth() > 0 && $orc->getHealth() >0) {
