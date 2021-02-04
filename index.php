@@ -21,7 +21,7 @@ spl_autoload_register(function ($class) {
     $orc = new Orc(500, 0);
     $orc->displayOrc();
 
-    while ($superChewi->getHealth() > 0) {
+    while ($superChewi->getHealth() > 0 && $orc->getHealth() >0) {
         $orc->attack();
         $superChewi->attacked($orc->getDamage());
         echo "💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
