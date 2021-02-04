@@ -59,11 +59,11 @@ class Hero extends Character
     public function displayHero()
     {
         $br = "<br>";
-        echo "<div class='hero'>🦸‍♀️ Race : Héros ${br}Vie : " . $this->health . $br
-            . "Arme: " . $this->weapon . $br
-            . "Dégats de l'arme: " . $this->weaponDamage . $br
-            . "Bouclier: " . $this->shield . $br
-            . "Protection du bouclier: " . $this->shieldValue . "</div>" .$br;
+        echo "<div class='hero'>🦸‍♀️ Race : Héros ${br}🔸 Vie : " . $this->health . $br
+            . "🔸 Arme: " . $this->weapon . $br
+            . "🔸 Dégats de l'arme: " . $this->weaponDamage . $br
+            . "🔸 Bouclier: " . $this->shield . $br
+            . "🔸 Protection du bouclier: " . $this->shieldValue . "</div>" .$br;
     }
 
     public function attacked($damage)

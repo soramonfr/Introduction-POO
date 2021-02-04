@@ -29,7 +29,7 @@ spl_autoload_register(function ($class) {
             . "🔸 Dégâts absorbés par le bouclier: " . $superChewi->getShieldValue() . $br
             . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
             . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
-            . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() ."</div>" . $br . $br;
+            . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() ."</div>" . $br;
 
         if ($superChewi->getRage() >= 100 && $orc->getHealth() > 0 && $superChewi->getHealth() > 0) {
             $orc->setHealth($orc->getHealth() - $superChewi->getWeaponDamage());
