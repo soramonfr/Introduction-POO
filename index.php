@@ -30,8 +30,15 @@ spl_autoload_register(function ($class) {
             . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
             . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
             . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() . $br . $br;
+
         if ($superChewi->getHealth() <= 0) {
             echo "$br 🚑🚑🚑 Les points de vie du héros sont épuisés. Le héros est KO! 🚑🚑🚑";
+        }
+
+        if ($superChewi->getRage() >= 100 && $orc->getHealth() > 0) {
+            $orc->setHealth($orc->getHealth() - $superChewi->getWeaponDamage());
+            echo "💢 Le héros riposte! L'orc prend " . $superChewi->getWeaponDamage() . " de dégâts et a dorénavant une vie de "
+                . $orc->getHealth() . " PV." . $br;
         }
     }
 
