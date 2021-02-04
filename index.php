@@ -20,15 +20,21 @@ spl_autoload_register(function ($class) {
     $superChewi->displayHero();
     $orc = new Orc(500, 0);
     $orc->displayOrc();
-    $orc->attack();
-    $superChewi->attacked($orc->getDamage());
 
-    echo "💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
-    . "🔸 Dégâts de l'Orc: " . $orc->getDamage() . $br
-    . "🔸 Dégâts absorbés par le bouclier: " . $superChewi->getShieldValue() . $br
-    . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
-    . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
-    . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() . $br;
+    while ($superChewi->getHealth() > 0) {
+        $orc->attack();
+        $superChewi->attacked($orc->getDamage());
+        echo "💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
+            . "🔸 Dégâts de l'Orc: " . $orc->getDamage() . $br
+            . "🔸 Dégâts absorbés par le bouclier: " . $superChewi->getShieldValue() . $br
+            . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
+            . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
+            . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() . $br . $br;
+        if ($superChewi->getHealth() <= 0) {
+            echo "$br 🚑🚑🚑 Les points de vie du héros sont épuisés. Le héros est KO! 🚑🚑🚑";
+        }
+    }
+
     ?>
 
 </body>

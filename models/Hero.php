@@ -59,7 +59,7 @@ class Hero extends Character
     public function displayHero()
     {
         $br = "<br>";
-        echo "🦸‍♀️ Race : Héro ${br}Vie : " . $this->health . $br
+        echo "🦸‍♀️ Race : Héros ${br}Vie : " . $this->health . $br
             . "Arme: " . $this->weapon . $br
             . "Dégats de l'arme: " . $this->weaponDamage . $br
             . "Bouclier: " . $this->shield . $br
@@ -69,7 +69,7 @@ class Hero extends Character
     public function attacked($damage)
     {
         if ($damage - $this->shieldValue > 0) {
-            $this->health -= ($damage - $this->shieldValue);
+            $this->setHealth($this->health - ($damage - $this->shieldValue));
         }
         $this->rage += 30;
     }
