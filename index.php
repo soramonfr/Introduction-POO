@@ -32,7 +32,6 @@ spl_autoload_register(function ($class) {
             echo "☠💀☠ L'Orc a été vaincu, félicitations! ☠💀☠";
         }
     }
-
     ?>
 
 </body>
