@@ -23,8 +23,8 @@ class Orc extends Character
     public function displayOrc()
     {
         $br = "<br>";
-        echo "🧟‍♂️ Race : Orc ${br}Vie : " . $this->health . $br
-            . "Dégâts infligés: " . $this->damage . $br;
+        echo "<div class='orc'>🧟‍♂️ Race : Orc ${br}Vie : " . $this->health . $br
+            . "Dégâts infligés: " . $this->damage . "</div>" . $br;
     }
 
     public function attack()
