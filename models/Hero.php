@@ -63,14 +63,41 @@ class Hero extends Character
             . "🔸 Arme: " . $this->weapon . $br
             . "🔸 Dégats de l'arme: " . $this->weaponDamage . $br
             . "🔸 Bouclier: " . $this->shield . $br
-            . "🔸 Protection du bouclier: " . $this->shieldValue . "</div>" .$br;
+            . "🔸 Protection du bouclier: " . $this->shieldValue . "</div>" . $br;
     }
 
-    public function attacked($damage)
+    public function attacked($meanGuy)
     {
-        if ($damage - $this->shieldValue > 0) {
-            $this->setHealth($this->health - ($damage - $this->shieldValue));
+        if ($meanGuy->getDamage() - $this->shieldValue > 0) {
+            $this->setHealth($this->health - ($meanGuy->getDamage() - $this->shieldValue));
         }
         $this->rage += 30;
+        $this->displayStats($meanGuy);
+        if ($this->rage >= 100 && $meanGuy->getHealth() > 0 && $this->health > 0) {
+            $this->strikesBack($meanGuy);
+        }
+    }
+
+    public function strikesBack($meanGuy)
+    {
+        if ($meanGuy instanceof Orc) {
+            $br = "<br>";
+            $meanGuy->attacked($this->weaponDamage);
+            echo "💢 Le héros riposte! L'orc prend " . $this->weaponDamage . " de dégâts et a dorénavant une vie de "
+                . $meanGuy->getHealth() . " PV." . $br . $br;
+        }
+    }
+
+    private function displayStats($meanGuy)
+    {
+        if ($meanGuy instanceof Orc) {
+            $br = "<br>";
+            echo "<div class='fight'>💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
+                . "🔸 Dégâts de l'Orc: " . $meanGuy->getDamage() . $br
+                . "🔸 Dégâts absorbés par le bouclier: " . $this->shieldValue . $br
+                . "🔸 Dégâts non absorbés: " . ($meanGuy->getDamage() - $this->shieldValue) . $br
+                . "🔸 Santé restante du Héros: " . $this->health . $br
+                . "🔸 Rage actuelle du Héros: " . $this->rage . "</div>" . $br;
+        }
     }
 }

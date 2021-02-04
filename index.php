@@ -22,20 +22,7 @@ spl_autoload_register(function ($class) {
     $orc->displayOrc();
 
     while ($superChewi->getHealth() > 0 && $orc->getHealth() > 0) {
-        $orc->attack();
-        $superChewi->attacked($orc->getDamage());
-        echo "<div class='fight'>💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
-            . "🔸 Dégâts de l'Orc: " . $orc->getDamage() . $br
-            . "🔸 Dégâts absorbés par le bouclier: " . $superChewi->getShieldValue() . $br
-            . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
-            . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
-            . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() ."</div>" . $br;
-
-        if ($superChewi->getRage() >= 100 && $orc->getHealth() > 0 && $superChewi->getHealth() > 0) {
-            $orc->setHealth($orc->getHealth() - $superChewi->getWeaponDamage());
-            echo "💢 Le héros riposte! L'orc prend " . $superChewi->getWeaponDamage() . " de dégâts et a dorénavant une vie de "
-                . $orc->getHealth() . " PV." . $br . $br;
-        }
+        $orc->attack($superChewi);
 
         if ($superChewi->getHealth() <= 0) {
             echo "🚑🚑🚑 Les points de vie du héros sont épuisés. Le héros est KO! 🚑🚑🚑";

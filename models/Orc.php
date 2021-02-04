@@ -27,8 +27,11 @@ class Orc extends Character
             . "🔸 Dégâts infligés: " . $this->damage . "</div>" . $br;
     }
 
-    public function attack()
+    public function attack($heroGuy)
     {
         $this->damage = random_int(600, 800);
+        if ($heroGuy instanceof Hero) {
+            $heroGuy->attacked($this);
+        }
     }
 }

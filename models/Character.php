@@ -33,4 +33,8 @@ class Character
     {
         $this->rage = $rage;
     }
+
+    public function attacked($damage){
+        $this->health -= $damage;
+    }
 }
