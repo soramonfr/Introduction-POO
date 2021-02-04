@@ -15,14 +15,20 @@ spl_autoload_register(function ($class) {
 
 <body>
     <?php
-    $superChewi = new Hero();
-    $superChewi->setWeapon("Banane");
-    $superChewi->attacked(13);
+    $br = "<br>";
+    $superChewi = new Hero(2000, "Banane", 250, "Moulin à café", 600);
     $superChewi->displayHero();
-    $orc = new Orc(100, 50);
+    $orc = new Orc(500, 0);
     $orc->displayOrc();
     $orc->attack();
-    $orc->displayOrc();
+    $superChewi->attacked($orc->getDamage());
+
+    echo "💥 L'Orc a attaqué notre héros avec succès! 💥" . $br
+    . "🔸 Dégâts de l'Orc: " . $orc->getDamage() . $br
+    . "🔸 Dégâts absorbés par le bouclier: " . $superChewi->getShieldValue() . $br
+    . "🔸 Dégâts non absorbés: " . ($orc->getDamage() - $superChewi->getShieldValue()) . $br
+    . "🔸 Santé restante du Héros: " . $superChewi->getHealth() . $br
+    . "🔸 Rage actuelle du Héros: " . $superChewi->getRage() . $br;
     ?>
 
 </body>

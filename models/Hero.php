@@ -56,16 +56,18 @@ class Hero extends Character
         $this->shieldValue = $shieldValue;
     }
 
-    public function displayHero () {
+    public function displayHero()
+    {
         $br = "<br>";
-        echo "Race : Héro ${br}Vie : " . $this->health . $br
+        echo "🦸‍♀️ Race : Héro ${br}Vie : " . $this->health . $br
             . "Arme: " . $this->weapon . $br
             . "Dégats de l'arme: " . $this->weaponDamage . $br
             . "Bouclier: " . $this->shield . $br
             . "Protection du bouclier: " . $this->shieldValue . $br;
     }
 
-    public function attacked($damage) {
+    public function attacked($damage)
+    {
         if ($damage - $this->shieldValue > 0) {
             $this->health -= ($damage - $this->shieldValue);
         }
