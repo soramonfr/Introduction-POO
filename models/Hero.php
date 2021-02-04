@@ -68,13 +68,15 @@ class Hero extends Character
 
     public function attacked($meanGuy)
     {
-        if ($meanGuy->getDamage() - $this->shieldValue > 0) {
-            $this->setHealth($this->health - ($meanGuy->getDamage() - $this->shieldValue));
-        }
-        $this->rage += 30;
-        $this->displayStats($meanGuy);
-        if ($this->rage >= 100 && $meanGuy->getHealth() > 0 && $this->health > 0) {
-            $this->strikesBack($meanGuy);
+        if ($meanGuy instanceof Orc) {
+            if ($meanGuy->getDamage() - $this->shieldValue > 0) {
+                $this->setHealth($this->health - ($meanGuy->getDamage() - $this->shieldValue));
+            }
+            $this->rage += 30;
+            $this->displayStats($meanGuy);
+            if ($this->rage >= 100 && $meanGuy->getHealth() > 0 && $this->health > 0) {
+                $this->strikesBack($meanGuy);
+            }
         }
     }
 
