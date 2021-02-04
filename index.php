@@ -18,7 +18,7 @@ spl_autoload_register(function ($class) {
     $br = "<br>";
     $superChewi = new Hero(2000, "Banane", 250, "Moulin à café", 600);
     $superChewi->displayHero();
-    $orc = new Orc(4000, 0);
+    $orc = new Orc(6000, 0);
     $orc->displayOrc();
 
     while ($superChewi->getHealth() > 0 && $orc->getHealth() >0) {
@@ -35,7 +35,7 @@ spl_autoload_register(function ($class) {
             echo "$br 🚑🚑🚑 Les points de vie du héros sont épuisés. Le héros est KO! 🚑🚑🚑";
         }
 
-        if ($superChewi->getRage() >= 100 && $orc->getHealth() > 0 && $superChewi->getHealth() > $orc->getHealth()) {
+        if ($superChewi->getRage() >= 100 && $orc->getHealth() > 0 && $superChewi->getHealth() > 0) {
             $orc->setHealth($orc->getHealth() - $superChewi->getWeaponDamage());
             echo "💢 Le héros riposte! L'orc prend " . $superChewi->getWeaponDamage() . " de dégâts et a dorénavant une vie de "
                 . $orc->getHealth() . " PV." . $br;
