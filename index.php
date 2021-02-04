@@ -40,6 +40,10 @@ spl_autoload_register(function ($class) {
             echo "💢 Le héros riposte! L'orc prend " . $superChewi->getWeaponDamage() . " de dégâts et a dorénavant une vie de "
                 . $orc->getHealth() . " PV." . $br .$br;
         }
+
+        if ($orc->getHealth() <= 0) {
+            echo "☠💀☠ L'Orc a été vaincu, félicitations! ☠💀☠";
+        }
     }
 
     ?>
